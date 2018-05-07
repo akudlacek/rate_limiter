@@ -105,3 +105,17 @@ void rate_lim_calc_slope(rate_limiter_inst_t *inst, float max, float min, uint32
 	if(inst->last_output > max)
 		inst->last_output = max;
 }
+
+/******************************************************************************
+*  \brief Reset ramp
+*
+*  \note run this to force the ramp to a specified value.
+******************************************************************************/
+void rate_lim_reset(rate_limiter_inst_t *inst, uint32_t current_time_tick, float input)
+{
+	/*Record timestamp*/
+	inst->last_time_tick = current_time_tick;
+	
+	/*Set last output to input*/
+	inst->last_output = input;
+}
