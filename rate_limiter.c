@@ -17,7 +17,7 @@
 *
 *  \note https://www.mathworks.com/help/simulink/slref/ratelimiter.html
 ******************************************************************************/
-float rate_lim(rate_limiter_inst_t *inst, uint32_t current_time_tick, float input)
+float rate_lim(rate_limiter_inst_t * const inst, const uint32_t current_time_tick, const float input)
 {
 	float err;
 	float slope;
@@ -73,7 +73,7 @@ float rate_lim(rate_limiter_inst_t *inst, uint32_t current_time_tick, float inpu
 *        This function calculates the slope up and down if these values are
 *        zero then slew_rate_limit will consider that to be no slope.
 ******************************************************************************/
-void rate_lim_calc_slope(rate_limiter_inst_t *inst, float max, float min, uint32_t up_time, uint32_t dn_time)
+void rate_lim_calc_slope(rate_limiter_inst_t * const inst, const float max, const float min, const uint32_t up_time, const uint32_t dn_time)
 {
 	float rise;
 	
@@ -114,7 +114,7 @@ void rate_lim_calc_slope(rate_limiter_inst_t *inst, float max, float min, uint32
 *
 *  \note run this to force the ramp to a specified value.
 ******************************************************************************/
-void rate_lim_reset(rate_limiter_inst_t *inst, uint32_t current_time_tick, float input)
+void rate_lim_reset(rate_limiter_inst_t * const inst, const uint32_t current_time_tick, const float input)
 {
 	/*Record timestamp*/
 	inst->last_time_tick = current_time_tick;
